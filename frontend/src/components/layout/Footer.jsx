@@ -59,7 +59,7 @@ export default function Footer() {
 
         <div className="pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-slate-600">© 2026 K Chandana. All rights reserved.</p>
-          <p className="text-xs text-slate-600 flex items-center gap-1">Built with <Heart size={11} className="text-red-500" /> React, Tailwind & Framer Motion</p>
+          
         </div>
       </div>
     </footer>

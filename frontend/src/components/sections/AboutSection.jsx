@@ -30,16 +30,16 @@ export default function AboutSection() {
           <div className="space-y-6">
             <div className="space-y-4 text-slate-300 leading-relaxed">
               <p>
-                I'm an <span className="text-blue-400 font-medium">Artificial Intelligence and Data Science</span> undergraduate at SDM Institute of Technology, Ujire — graduating in 2026 with a CGPA of 8.48. I'm driven by the intersection of machine learning, full-stack engineering, and emerging technologies.
+                I'm an <span className="text-blue-400 font-medium">Artificial Intelligence and Data Science</span> undergraduate at SDM Institute of Technology, Ujire  graduated in 2026 with a CGPA of 8.48. I'm driven by the intersection of machine learning, full-stack engineering, and emerging technologies.
               </p>
               <p>
-                My work spans a wide range — from building an <span className="text-violet-400 font-medium">AI-powered virtual try-on fashion application</span> using computer vision, to developing <span className="text-amber-400 font-medium">decentralised applications</span> with Solidity smart contracts.
+                My work spans a wide range from building an <span className="text-violet-400 font-medium">AI-powered virtual try-on fashion application</span> using computer vision, to developing <span className="text-amber-400 font-medium">decentralised applications</span> with Solidity smart contracts.
               </p>
               <p>
                 I'm currently interning at <span className="text-blue-400 font-medium">Hindustan Aeronautics Limited (HAL)</span>, building internal web interfaces using ASP.NET — a uniquely grounding experience bridging software and aerospace engineering.
               </p>
               <p className="text-slate-400">
-                Beyond code, I hold an <strong className="text-white">NCC 'A' Certificate</strong>, have won a <strong className="text-white">hackathon 1st place</strong> at JNNCE Shivamogga, and lead/co-ordinate events as part of IRCS and NSS. I believe technology is most powerful when it solves real, tangible problems.
+                Beyond code, I hold an <strong className="text-white">NCC 'A' Certificate</strong>, have won a <strong className="text-white">hackathon 1st place</strong> at JNNCE Shivamogga, and Event Coordinator of IRCS and a memeber of NSS. I believe technology is most powerful when it solves real, tangible problems.
               </p>
             </div>
 
@@ -47,7 +47,7 @@ export default function AboutSection() {
             <div className="glass rounded-xl p-5 border-l-2 border-blue-500">
               <p className="text-sm font-mono text-blue-400 mb-2">// Career Objective</p>
               <p className="text-slate-300 text-sm leading-relaxed">
-                Seeking a challenging role where I can leverage my expertise in AI/ML, computer vision, and full-stack development to build systems that make a measurable impact — while continuing to grow at the frontier of intelligent technology.
+                Seeking a challenging role where I can leverage my expertise in AI/ML, computer vision, and full-stack development to build systems that make a measurable impact while continuing to grow at the frontier of intelligent technology.
               </p>
             </div>
           </div>
@@ -98,7 +98,7 @@ export default function AboutSection() {
               <div className="w-10 h-10 rounded-xl bg-blue-600/20 flex items-center justify-center text-blue-400 text-lg">📍</div>
               <div>
                 <div className="text-white font-medium text-sm">{PERSONAL.location}</div>
-                <div className="text-slate-500 text-xs mt-0.5">{PERSONAL.college}</div>
+                {/*<div className="text-slate-500 text-xs mt-0.5">{PERSONAL.college}</div>*/}
               </div>
             </div>
           </div>
