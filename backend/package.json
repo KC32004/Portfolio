@@ -1,7 +1,7 @@
 {
   "name": "chandana-portfolio-backend",
   "version": "1.0.0",
-  "description": "Backend API for Chandana K Portfolio",
+  "description": "Backend API for K Chandana  Portfolio",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
