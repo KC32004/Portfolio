@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --scrollbar-thumb: #3b82f6;
+    --scrollbar-track: #1e293b;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    @apply bg-slate-950 text-slate-100 font-sans;
+    -webkit-font-smoothing: antialiased;
+  }
+  body.light {
+    @apply bg-white text-slate-900;
+  }
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: #0f172a; }
+  ::-webkit-scrollbar-thumb { background: #3b82f6; border-radius: 3px; }
+  * { box-sizing: border-box; }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/5 backdrop-blur-md border border-white/10;
+  }
+  .glass-light {
+    @apply bg-white/80 backdrop-blur-md border border-slate-200/60;
+  }
+  .gradient-text {
+    @apply bg-gradient-to-r from-blue-400 via-violet-400 to-blue-600 bg-clip-text text-transparent;
+  }
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold transition-all duration-200 hover:shadow-lg hover:shadow-blue-500/25 hover:-translate-y-0.5;
+  }
+  .btn-outline {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-blue-500/50 text-blue-400 hover:bg-blue-500/10 font-semibold transition-all duration-200 hover:-translate-y-0.5;
+  }
+  .skill-badge {
+    @apply px-3 py-1.5 rounded-lg text-sm font-medium bg-blue-500/10 text-blue-300 border border-blue-500/20 hover:bg-blue-500/20 transition-colors;
+  }
+  .section-title {
+    @apply text-3xl sm:text-4xl font-bold font-display;
+  }
+  .card {
+    @apply rounded-2xl border border-slate-700/50 bg-slate-900/50 backdrop-blur-sm;
+  }
+  .tag {
+    @apply text-xs px-2.5 py-1 rounded-full font-mono font-medium;
+  }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .animation-delay-200 { animation-delay: 200ms; }
+  .animation-delay-400 { animation-delay: 400ms; }
+  .animation-delay-600 { animation-delay: 600ms; }
+  .perspective-1000 { perspective: 1000px; }
+}
+
+/* Progress bar */
+#scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6, #3b82f6);
+  background-size: 200% 100%;
+  animation: gradient 2s ease infinite;
+  z-index: 9999;
+  transition: width 0.1s linear;
+}
