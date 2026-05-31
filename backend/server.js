@@ -42,7 +42,7 @@ app.use(express.urlencoded({ extended: true, limit: '10kb' }));
 
 // Routes
 app.use('/api/auth', require('./routes/authRoutes'));
-app.use('/api/contact', contactLimiter, require('./routes/contactRoutes'));
+app.use('/api/contact', require('./routes/contactRoutes'));
 
 // Health Check
 app.get('/api/health', (req, res) => {
