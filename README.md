@@ -76,5 +76,5 @@ Frontend needs: `VITE_API_URL`
 
 ## Author
 
-**K Chandana** — B.E. AI & Data Science, SDMIT (VTU, 2025)  
+**K Chandana** - B.E. AI & Data Science, SDMIT (VTU, 2025)  
 [Portfolio](https://k-chandana.vercel.app) · [LinkedIn](https://linkedin.com/in/k-chandana-ai) · [GitHub](https://github.com/KC32004)
