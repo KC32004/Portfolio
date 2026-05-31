@@ -25,7 +25,7 @@ project showcase, and a working contact form backed by a Node.js API.
 - Animated hero with typing effect and scroll-reveal transitions
 - Dark / light mode toggle
 - Project showcase with search and category filter
-- Working contact form — submissions stored in MongoDB, 
+- Working contact form submissions stored in MongoDB, 
   email notification sent on every message
 - JWT-protected admin dashboard to view, filter, and manage messages
 - Fully responsive across mobile, tablet, and desktop
