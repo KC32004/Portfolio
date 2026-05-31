@@ -1,4 +1,4 @@
-# Personal Portfolio — K Chandana
+# Personal Portfolio - K Chandana
 
 Live at **[k-chandana.vercel.app](https://k-chandana.vercel.app)**
 
