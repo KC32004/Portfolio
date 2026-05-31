@@ -5,7 +5,7 @@ export const PERSONAL = {
   email: 'kchandana.200432@gmail.com',
   location: 'Bengaluru, Karnataka, India',
   github: 'https://github.com/KC32004',
-  linkedin: 'https://linkedin.com/in/k-chandana',
+  linkedin: 'https://linkedin.com/in/k-chandana-ai',
   cgpa: '8.48',
   college: 'SDM Institute of Technology, Ujire'
 }

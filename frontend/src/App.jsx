@@ -2,7 +2,9 @@ import { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
 import { ThemeProvider } from './context/ThemeContext'
+import { AuthProvider } from './context/AuthContext'
 import LoadingScreen from './components/ui/LoadingScreen'
+import ProtectedRoute from './components/ui/ProtectedRoute'
 import Navbar from './components/layout/Navbar'
 import Footer from './components/layout/Footer'
 import { ScrollProgress, BackToTop } from './components/layout/ScrollUtils'
@@ -31,22 +33,31 @@ export default function App() {
 
   return (
     <ThemeProvider>
-      <Router>
-        <ScrollProgress />
-        <BackToTop />
-        <AnimatePresence mode="wait">
-          {loading ? (
-            <LoadingScreen key="loading" onComplete={() => setLoading(false)} />
-          ) : (
-            <Routes>
-              <Route path="/" element={<PortfolioLayout />} />
-              <Route path="/admin/login" element={<AdminLogin />} />
-              <Route path="/admin/dashboard" element={<AdminDashboard />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          )}
-        </AnimatePresence>
-      </Router>
+      <AuthProvider>
+        <Router>
+          <ScrollProgress />
+          <BackToTop />
+          <AnimatePresence mode="wait">
+            {loading ? (
+              <LoadingScreen key="loading" onComplete={() => setLoading(false)} />
+            ) : (
+              <Routes>
+                <Route path="/" element={<PortfolioLayout />} />
+                <Route path="/admin/login" element={<AdminLogin />} />
+                <Route
+                  path="/admin/dashboard"
+                  element={
+                    <ProtectedRoute>
+                      <AdminDashboard />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            )}
+          </AnimatePresence>
+        </Router>
+      </AuthProvider>
     </ThemeProvider>
   )
 }
