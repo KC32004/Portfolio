@@ -31,7 +31,7 @@ const contactLimiter = rateLimit({
 
 // CORS
 app.use(cors({
-  origin: [process.env.FRONTEND_URL || 'http://localhost:5173', 'https://chandana-portfolio.vercel.app'],
+  origin: [process.env.FRONTEND_URL || 'http://localhost:5173', 'https://k-chandana.vercel.app'],
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
