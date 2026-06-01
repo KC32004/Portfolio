@@ -1,4 +1,4 @@
-# Personal Portfolio — K Chandana
+# Personal Portfolio - K Chandana
 
 Live at **[k-chandana.vercel.app](https://k-chandana.vercel.app)**
 
@@ -25,7 +25,7 @@ project showcase, and a working contact form backed by a Node.js API.
 - Animated hero with typing effect and scroll-reveal transitions
 - Dark / light mode toggle
 - Project showcase with search and category filter
-- Working contact form — submissions stored in MongoDB, 
+- Working contact form submissions stored in MongoDB, 
   email notification sent on every message
 - JWT-protected admin dashboard to view, filter, and manage messages
 - Fully responsive across mobile, tablet, and desktop
@@ -76,5 +76,5 @@ Frontend needs: `VITE_API_URL`
 
 ## Author
 
-**K Chandana** — B.E. AI & Data Science, SDMIT (VTU, 2025)  
+**K Chandana** - B.E. AI & Data Science, SDMIT (VTU, 2025)  
 [Portfolio](https://k-chandana.vercel.app) · [LinkedIn](https://linkedin.com/in/k-chandana-ai) · [GitHub](https://github.com/KC32004)
