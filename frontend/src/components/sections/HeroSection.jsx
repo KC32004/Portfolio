@@ -49,7 +49,7 @@ export default function HeroSection() {
 
             <motion.h1 {...fade(0.2)} className="heading-xl text-slate-900 dark:text-white">
               Hi, I'm{' '}
-              <span className="text-gradient italic font-display">K. Chandana</span>
+              <span className="text-gradient italic font-display">K.Chandana</span>
               <span className="block text-slate-300 dark:text-slate-700 text-4xl sm:text-5xl lg:text-6xl mt-1">—</span>
             </motion.h1>
 
@@ -63,7 +63,7 @@ export default function HeroSection() {
             </motion.div>
 
             <motion.p {...fade(0.4)} className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-lg">
-              B.E. in AI & Data Science from <strong className="text-slate-900 dark:text-white">SDMIT, Ujire</strong> (CGPA <strong className="text-indigo-600 dark:text-indigo-400">8.48</strong>). Building intelligent real-world systems — from computer vision apps to blockchain dApps and enterprise web platforms.
+              B.E. in Artificial Intelligence & Data Science from <strong className="text-slate-900 dark:text-white">SDMIT, Ujire</strong> (CGPA <strong className="text-indigo-600 dark:text-indigo-400">8.48</strong>). Building intelligent real-world systems — from computer vision apps to blockchain dApps and enterprise web platforms.
             </motion.p>
 
             <motion.div {...fade(0.5)} className="flex flex-wrap gap-3 pt-1">
