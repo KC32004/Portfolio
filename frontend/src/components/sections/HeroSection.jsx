@@ -43,7 +43,7 @@ export default function HeroSection() {
             <motion.div variants={item}>
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold bg-green-50 dark:bg-green-500/10 text-green-700 dark:text-green-400 border border-green-200 dark:border-green-500/20">
                 <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                Open to Internships & Full-time Roles
+                Available for opportunities
               </span>
             </motion.div>
 
@@ -75,7 +75,7 @@ export default function HeroSection() {
 
             {/* Tagline */}
             <motion.p variants={item} className="text-slate-600 dark:text-slate-300 text-lg leading-relaxed max-w-lg">
-              B.E. in AI & Data Science from SDMIT Ujire (CGPA: <strong className="text-slate-900 dark:text-white">8.48</strong>). Building intelligent, real-world systems — from computer vision to blockchain dApps.
+              B.E. in AI & Data Science from SDMIT Ujire (CGPA: <strong className="text-slate-900 dark:text-white">8.48</strong>). Building intelligent, real-world systems from computer vision to blockchain dApps.
             </motion.p>
 
             {/* CTAs */}
@@ -152,7 +152,7 @@ export default function HeroSection() {
                 { label: '👁 Computer Vision', x: -120, y: 110, delay: 0.9 },
                 { label: '⛓ Blockchain dApp', x: 100, y: 120, delay: 1.1 },
               ].map(({ label, x, y, delay }) => (
-                <motion.div
+               /* <motion.div
                   key={label}
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
@@ -161,7 +161,7 @@ export default function HeroSection() {
                   className="px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-xs font-semibold whitespace-nowrap shadow-md"
                 >
                   {label}
-                </motion.div>
+                </motion.div>*/
               ))}
             </div>
           </motion.div>
