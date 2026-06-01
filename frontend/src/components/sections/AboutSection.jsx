@@ -4,101 +4,73 @@ import SectionWrapper, { SectionHeader } from '../ui/SectionWrapper'
 import { PERSONAL } from '../../data/portfolioData'
 
 const interests = [
-  { icon: <Brain size={20} />, label: 'Artificial Intelligence', color: 'text-blue-400 bg-blue-500/10 border-blue-500/20' },
-  { icon: <Eye size={20} />, label: 'Computer Vision', color: 'text-violet-400 bg-violet-500/10 border-violet-500/20' },
-  { icon: <Database size={20} />, label: 'Data Science', color: 'text-cyan-400 bg-cyan-500/10 border-cyan-500/20' },
-  { icon: <Code2 size={20} />, label: 'Full Stack Dev', color: 'text-green-400 bg-green-500/10 border-green-500/20' },
-  { icon: <Blocks size={20} />, label: 'Blockchain', color: 'text-amber-400 bg-amber-500/10 border-amber-500/20' },
-  { icon: <Globe size={20} />, label: 'Web Technologies', color: 'text-pink-400 bg-pink-500/10 border-pink-500/20' }
+  { icon: <Brain size={18} />, label: 'Artificial Intelligence', color: 'bg-blue-50 dark:bg-blue-500/10 text-blue-700 dark:text-blue-300 border-blue-100 dark:border-blue-500/20' },
+  { icon: <Eye size={18} />, label: 'Computer Vision', color: 'bg-violet-50 dark:bg-violet-500/10 text-violet-700 dark:text-violet-300 border-violet-100 dark:border-violet-500/20' },
+  { icon: <Database size={18} />, label: 'Data Science', color: 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 border-cyan-100 dark:border-cyan-500/20' },
+  { icon: <Code2 size={18} />, label: 'Full Stack Dev', color: 'bg-green-50 dark:bg-green-500/10 text-green-700 dark:text-green-300 border-green-100 dark:border-green-500/20' },
+  { icon: <Blocks size={18} />, label: 'Blockchain / Web3', color: 'bg-amber-50 dark:bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-100 dark:border-amber-500/20' },
+  { icon: <Globe size={18} />, label: 'Web Technologies', color: 'bg-pink-50 dark:bg-pink-500/10 text-pink-700 dark:text-pink-300 border-pink-100 dark:border-pink-500/20' }
 ]
 
 const stats = [
-  { value: '8.48', label: 'CGPA', sublabel: 'B.E. AI & DS' },
-  { value: '5+', label: 'Projects', sublabel: 'Built & deployed' },
-  { value: '5+', label: 'Hackathons', sublabel: 'Participated' },
-  { value: '7+', label: 'Certifications', sublabel: 'Completed' }
+  { value: '8.48', label: 'CGPA', sub: 'B.E. AI & DS' },
+  { value: '5+', label: 'Projects', sub: 'Built & shipped' },
+  { value: '5+', label: 'Hackathons', sub: 'Participated' },
+  { value: '7+', label: 'Certifications', sub: 'Completed' }
 ]
 
 export default function AboutSection() {
   return (
-    <SectionWrapper id="about" className="bg-slate-950">
+    <SectionWrapper id="about" className="section-alt">
       <div className="section-container">
-        <SectionHeader label="About Me" title="Who I Am" subtitle="AI & Data Science undergraduate passionate about building intelligent real-world solutions" />
-
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
-          {/* Left: Text */}
-          <div className="space-y-6">
-            <div className="space-y-4 text-slate-300 leading-relaxed">
-              <p>
-                I'm an <span className="text-blue-400 font-medium">Artificial Intelligence and Data Science</span> undergraduate at SDM Institute of Technology, Ujire  graduated in 2026 with a CGPA of 8.48. I'm driven by the intersection of machine learning, full-stack engineering, and emerging technologies.
-              </p>
-              <p>
-                My work spans a wide range from building an <span className="text-violet-400 font-medium">AI-powered virtual try-on fashion application</span> using computer vision, to developing <span className="text-amber-400 font-medium">decentralised applications</span> with Solidity smart contracts.
-              </p>
-              <p>
-                I'm currently interning at <span className="text-blue-400 font-medium">Hindustan Aeronautics Limited (HAL)</span>, building internal web interfaces using ASP.NET — a uniquely grounding experience bridging software and aerospace engineering.
-              </p>
-              <p className="text-slate-400">
-                Beyond code, I hold an <strong className="text-white">NCC 'A' Certificate</strong>, have won a <strong className="text-white">hackathon 1st place</strong> at JNNCE Shivamogga, and Event Coordinator of IRCS and a memeber of NSS. I believe technology is most powerful when it solves real, tangible problems.
-              </p>
+        <SectionHeader label="About Me" title="Who I Am" subtitle="A passionate AI & Data Science graduate driven to build practical, intelligent solutions" />
+        <div className="grid lg:grid-cols-2 gap-14 items-start">
+          {/* Left */}
+          <div className="space-y-5">
+            <div className="space-y-4 text-slate-600 dark:text-slate-300 leading-relaxed">
+              <p>I'm an <strong className="text-slate-900 dark:text-white">Artificial Intelligence & Data Science</strong> undergraduate at SDM Institute of Technology, Ujire — graduating in 2026 with a CGPA of <strong className="text-blue-600 dark:text-blue-400">8.48</strong>.</p>
+              <p>My work spans from building an <strong className="text-slate-900 dark:text-white">AI-powered virtual try-on app</strong> using computer vision, to <strong className="text-slate-900 dark:text-white">decentralised applications</strong> on Ethereum with Solidity smart contracts.</p>
+              <p>Currently interning at <strong className="text-slate-900 dark:text-white">Hindustan Aeronautics Limited (HAL)</strong>, developing internal web applications using ASP.NET — bridging software and aerospace engineering.</p>
+              <p>Beyond code, I hold an <strong className="text-slate-900 dark:text-white">NCC 'A' Certificate</strong>, won <strong className="text-slate-900 dark:text-white">1st place</strong> at Yugma TechFest Ideathon, and actively lead events through IRCS and NSS.</p>
             </div>
-
-            {/* Career objective */}
-            <div className="glass rounded-xl p-5 border-l-2 border-blue-500">
-              <p className="text-sm font-mono text-blue-400 mb-2">// Career Objective</p>
-              <p className="text-slate-300 text-sm leading-relaxed">
-                Seeking a challenging role where I can leverage my expertise in AI/ML, computer vision, and full-stack development to build systems that make a measurable impact while continuing to grow at the frontier of intelligent technology.
-              </p>
+            <div className="bg-blue-50 dark:bg-blue-500/5 border-l-4 border-blue-500 rounded-r-xl p-4">
+              <p className="text-xs font-mono text-blue-600 dark:text-blue-400 mb-1.5">Career Objective</p>
+              <p className="text-slate-700 dark:text-slate-300 text-sm leading-relaxed">Seeking roles in AI/ML, computer vision, or full-stack development where I can build impactful, data-driven systems and grow at the frontier of intelligent technology.</p>
             </div>
           </div>
-
-          {/* Right: Stats + Interests */}
-          <div className="space-y-8">
-            {/* Stats */}
-            <div className="grid grid-cols-2 gap-4">
-              {stats.map(({ value, label, sublabel }, i) => (
+          {/* Right */}
+          <div className="space-y-6">
+            <div className="grid grid-cols-2 gap-3">
+              {stats.map(({ value, label, sub }, i) => (
                 <motion.div
                   key={label}
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.4, delay: i * 0.1 }}
+                  transition={{ delay: i * 0.08 }}
                   viewport={{ once: true }}
-                  className="card p-5 text-center hover:border-blue-500/30 transition-colors"
+                  className="card p-5 text-center hover:shadow-md transition-shadow"
                 >
                   <div className="text-3xl font-bold gradient-text font-display">{value}</div>
-                  <div className="text-white font-medium text-sm mt-1">{label}</div>
-                  <div className="text-slate-500 text-xs mt-0.5">{sublabel}</div>
+                  <div className="text-slate-800 dark:text-white font-semibold text-sm mt-1">{label}</div>
+                  <div className="text-slate-400 text-xs mt-0.5">{sub}</div>
                 </motion.div>
               ))}
             </div>
-
-            {/* Interests */}
             <div>
-              <p className="text-sm font-mono text-slate-500 mb-4">// Areas of Interest</p>
-              <div className="grid grid-cols-2 gap-3">
+              <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">Areas of Interest</p>
+              <div className="grid grid-cols-2 gap-2">
                 {interests.map(({ icon, label, color }, i) => (
                   <motion.div
                     key={label}
-                    initial={{ opacity: 0, x: 20 }}
+                    initial={{ opacity: 0, x: 15 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.4, delay: i * 0.08 }}
+                    transition={{ delay: i * 0.07 }}
                     viewport={{ once: true }}
-                    whileHover={{ scale: 1.03 }}
-                    className={`flex items-center gap-3 p-3 rounded-xl border ${color} text-sm font-medium`}
+                    className={`flex items-center gap-2.5 p-3 rounded-xl border text-sm font-medium ${color}`}
                   >
-                    {icon}
-                    <span>{label}</span>
+                    {icon} {label}
                   </motion.div>
                 ))}
-              </div>
-            </div>
-
-            {/* Location */}
-            <div className="glass rounded-xl p-4 flex items-center gap-4">
-              <div className="w-10 h-10 rounded-xl bg-blue-600/20 flex items-center justify-center text-blue-400 text-lg">📍</div>
-              <div>
-                <div className="text-white font-medium text-sm">{PERSONAL.location}</div>
-                {/*<div className="text-slate-500 text-xs mt-0.5">{PERSONAL.college}</div>*/}
               </div>
             </div>
           </div>

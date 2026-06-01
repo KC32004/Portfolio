@@ -3,73 +3,114 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    --scrollbar-thumb: #3b82f6;
-    --scrollbar-track: #1e293b;
-  }
   html { scroll-behavior: smooth; }
+
+  /* ── LIGHT MODE (default) ── */
   body {
-    @apply bg-slate-950 text-slate-100 font-sans;
+    @apply bg-slate-50 text-slate-900 font-sans;
     -webkit-font-smoothing: antialiased;
   }
-  body.light {
-    @apply bg-white text-slate-900;
+
+  /* ── DARK MODE ── */
+  .dark body {
+    @apply bg-slate-950 text-slate-100;
   }
-  ::-webkit-scrollbar { width: 6px; }
-  ::-webkit-scrollbar-track { background: #0f172a; }
+
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: #f1f5f9; }
   ::-webkit-scrollbar-thumb { background: #3b82f6; border-radius: 3px; }
+  .dark ::-webkit-scrollbar-track { background: #0f172a; }
   * { box-sizing: border-box; }
 }
 
 @layer components {
+  /* ── Cards ── */
+  .card {
+    @apply rounded-2xl border border-slate-200 bg-white shadow-sm;
+  }
+  .dark .card {
+    @apply border-slate-700/50 bg-slate-900/50 shadow-none;
+  }
+
+  /* ── Glass ── */
   .glass {
-    @apply bg-white/5 backdrop-blur-md border border-white/10;
+    @apply bg-white/70 backdrop-blur-md border border-slate-200/80;
   }
-  .glass-light {
-    @apply bg-white/80 backdrop-blur-md border border-slate-200/60;
+  .dark .glass {
+    @apply bg-white/5 border-white/10;
   }
+
+  /* ── Gradient text ── */
   .gradient-text {
-    @apply bg-gradient-to-r from-blue-400 via-violet-400 to-blue-600 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-blue-600 via-violet-600 to-blue-700 bg-clip-text text-transparent;
   }
+  .dark .gradient-text {
+    @apply from-blue-400 via-violet-400 to-blue-500;
+  }
+
+  /* ── Layout ── */
   .section-container {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
+
+  /* ── Buttons ── */
   .btn-primary {
-    @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold transition-all duration-200 hover:shadow-lg hover:shadow-blue-500/25 hover:-translate-y-0.5;
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold transition-all duration-200 hover:shadow-lg hover:shadow-blue-500/20 active:scale-95;
   }
   .btn-outline {
-    @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-blue-500/50 text-blue-400 hover:bg-blue-500/10 font-semibold transition-all duration-200 hover:-translate-y-0.5;
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-semibold transition-all duration-200 active:scale-95;
   }
-  .skill-badge {
-    @apply px-3 py-1.5 rounded-lg text-sm font-medium bg-blue-500/10 text-blue-300 border border-blue-500/20 hover:bg-blue-500/20 transition-colors;
+  .dark .btn-outline {
+    @apply border-blue-400 text-blue-400 hover:bg-blue-500 hover:text-white;
+  }
+
+  /* ── Tags ── */
+  .tag {
+    @apply text-xs px-2.5 py-1 rounded-full font-mono font-medium;
   }
   .section-title {
     @apply text-3xl sm:text-4xl font-bold font-display;
   }
-  .card {
-    @apply rounded-2xl border border-slate-700/50 bg-slate-900/50 backdrop-blur-sm;
+
+  /* ── Section bg alternation ── */
+  .section-light {
+    @apply bg-white;
   }
-  .tag {
-    @apply text-xs px-2.5 py-1 rounded-full font-mono font-medium;
+  .section-alt {
+    @apply bg-slate-50;
+  }
+  .dark .section-light {
+    @apply bg-slate-950;
+  }
+  .dark .section-alt {
+    @apply bg-slate-900/40;
+  }
+
+  /* ── Nav link ── */
+  .nav-link {
+    @apply px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 transition-all duration-150;
+  }
+  .nav-link.active {
+    @apply text-blue-600 bg-blue-50 font-semibold;
+  }
+  .dark .nav-link {
+    @apply text-slate-400 hover:text-blue-400 hover:bg-blue-500/10;
+  }
+  .dark .nav-link.active {
+    @apply text-blue-400 bg-blue-500/10;
   }
 }
 
 @layer utilities {
   .text-balance { text-wrap: balance; }
-  .animation-delay-200 { animation-delay: 200ms; }
-  .animation-delay-400 { animation-delay: 400ms; }
-  .animation-delay-600 { animation-delay: 600ms; }
-  .perspective-1000 { perspective: 1000px; }
 }
 
-/* Progress bar */
+/* ── Scroll progress bar ── */
 #scroll-progress {
   position: fixed;
   top: 0; left: 0;
   height: 3px;
-  background: linear-gradient(90deg, #3b82f6, #8b5cf6, #3b82f6);
-  background-size: 200% 100%;
-  animation: gradient 2s ease infinite;
+  background: linear-gradient(90deg, #2563eb, #7c3aed);
   z-index: 9999;
   transition: width 0.1s linear;
 }
