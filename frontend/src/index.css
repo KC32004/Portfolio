@@ -3,114 +3,111 @@
 @tailwind utilities;
 
 @layer base {
-  html { scroll-behavior: smooth; }
-
-  /* ── LIGHT MODE (default) ── */
-  body {
-    @apply bg-slate-50 text-slate-900 font-sans;
-    -webkit-font-smoothing: antialiased;
+  html {
+    scroll-behavior: smooth;
+    font-size: 16px;
   }
 
-  /* ── DARK MODE ── */
+  /* ── LIGHT MODE — default, no class needed ── */
+  body {
+    @apply bg-white text-slate-900 font-sans antialiased;
+    background-color: #ffffff;
+    color: #0f172a;
+  }
+
+  /* ── DARK MODE — only when .dark on <html> ── */
   .dark body {
-    @apply bg-slate-950 text-slate-100;
+    background-color: #0a0f1e;
+    color: #e2e8f0;
   }
 
   ::-webkit-scrollbar { width: 5px; }
-  ::-webkit-scrollbar-track { background: #f1f5f9; }
-  ::-webkit-scrollbar-thumb { background: #3b82f6; border-radius: 3px; }
-  .dark ::-webkit-scrollbar-track { background: #0f172a; }
+  ::-webkit-scrollbar-track { background: #f8fafc; }
+  ::-webkit-scrollbar-thumb { background: #6366f1; border-radius: 10px; }
+  .dark ::-webkit-scrollbar-track { background: #0a0f1e; }
+
   * { box-sizing: border-box; }
+  ::selection { background: #c7d2fe; color: #1e1b4b; }
 }
 
 @layer components {
-  /* ── Cards ── */
+  /* Layout */
+  .container-xl { @apply max-w-6xl mx-auto px-5 sm:px-8; }
+
+  /* Typography */
+  .heading-xl  { @apply text-5xl sm:text-6xl lg:text-7xl font-bold font-display leading-[1.08] tracking-tight; }
+  .heading-lg  { @apply text-4xl sm:text-5xl font-bold font-display leading-tight tracking-tight; }
+  .heading-md  { @apply text-2xl sm:text-3xl font-bold font-display; }
+  .body-lg     { @apply text-lg leading-relaxed text-slate-600; }
+  .dark .body-lg { @apply text-slate-300; }
+
+  /* Gradient text */
+  .text-gradient {
+    @apply bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 bg-clip-text text-transparent;
+  }
+  .dark .text-gradient {
+    @apply from-indigo-400 via-purple-400 to-pink-400;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-sm transition-all duration-200 shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40 hover:-translate-y-0.5 active:translate-y-0 active:shadow-none;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-full border-2 border-slate-200 text-slate-700 font-semibold text-sm hover:border-indigo-300 hover:text-indigo-600 hover:bg-indigo-50 transition-all duration-200 active:scale-95;
+  }
+  .dark .btn-ghost {
+    @apply border-slate-700 text-slate-300 hover:border-indigo-500 hover:text-indigo-400 hover:bg-indigo-500/10;
+  }
+
+  /* Cards */
   .card {
-    @apply rounded-2xl border border-slate-200 bg-white shadow-sm;
+    @apply bg-white border border-slate-100 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-200;
   }
   .dark .card {
-    @apply border-slate-700/50 bg-slate-900/50 shadow-none;
+    @apply bg-slate-900 border-slate-800 shadow-none;
+  }
+  .card-hover {
+    @apply card hover:-translate-y-1 hover:shadow-lg transition-all duration-200;
   }
 
-  /* ── Glass ── */
-  .glass {
-    @apply bg-white/70 backdrop-blur-md border border-slate-200/80;
-  }
-  .dark .glass {
-    @apply bg-white/5 border-white/10;
-  }
+  /* Section backgrounds */
+  .section-white { @apply bg-white; }
+  .section-gray  { @apply bg-slate-50; }
+  .dark .section-white { background-color: #0a0f1e; }
+  .dark .section-gray  { background-color: #0d1424; }
 
-  /* ── Gradient text ── */
-  .gradient-text {
-    @apply bg-gradient-to-r from-blue-600 via-violet-600 to-blue-700 bg-clip-text text-transparent;
+  /* Tags / Pills */
+  .pill {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-indigo-50 text-indigo-700 border border-indigo-100;
   }
-  .dark .gradient-text {
-    @apply from-blue-400 via-violet-400 to-blue-500;
-  }
+  .dark .pill { @apply bg-indigo-500/10 text-indigo-300 border-indigo-500/20; }
 
-  /* ── Layout ── */
-  .section-container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  .pill-gray {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-slate-100 text-slate-600;
   }
+  .dark .pill-gray { @apply bg-slate-800 text-slate-400; }
 
-  /* ── Buttons ── */
-  .btn-primary {
-    @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold transition-all duration-200 hover:shadow-lg hover:shadow-blue-500/20 active:scale-95;
+  /* Nav */
+  .nav-item {
+    @apply px-4 py-2 rounded-full text-sm font-semibold text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 transition-all duration-150;
   }
-  .btn-outline {
-    @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-semibold transition-all duration-200 active:scale-95;
-  }
-  .dark .btn-outline {
-    @apply border-blue-400 text-blue-400 hover:bg-blue-500 hover:text-white;
-  }
+  .nav-item.active { @apply text-indigo-600 bg-indigo-50; }
+  .dark .nav-item  { @apply text-slate-400 hover:text-indigo-400 hover:bg-indigo-500/10; }
+  .dark .nav-item.active { @apply text-indigo-400 bg-indigo-500/10; }
 
-  /* ── Tags ── */
-  .tag {
-    @apply text-xs px-2.5 py-1 rounded-full font-mono font-medium;
+  /* Section label */
+  .section-eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.15em] text-indigo-600;
   }
-  .section-title {
-    @apply text-3xl sm:text-4xl font-bold font-display;
-  }
-
-  /* ── Section bg alternation ── */
-  .section-light {
-    @apply bg-white;
-  }
-  .section-alt {
-    @apply bg-slate-50;
-  }
-  .dark .section-light {
-    @apply bg-slate-950;
-  }
-  .dark .section-alt {
-    @apply bg-slate-900/40;
-  }
-
-  /* ── Nav link ── */
-  .nav-link {
-    @apply px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 transition-all duration-150;
-  }
-  .nav-link.active {
-    @apply text-blue-600 bg-blue-50 font-semibold;
-  }
-  .dark .nav-link {
-    @apply text-slate-400 hover:text-blue-400 hover:bg-blue-500/10;
-  }
-  .dark .nav-link.active {
-    @apply text-blue-400 bg-blue-500/10;
-  }
+  .dark .section-eyebrow { @apply text-indigo-400; }
 }
 
-@layer utilities {
-  .text-balance { text-wrap: balance; }
-}
-
-/* ── Scroll progress bar ── */
+/* Scroll progress */
 #scroll-progress {
-  position: fixed;
-  top: 0; left: 0;
-  height: 3px;
-  background: linear-gradient(90deg, #2563eb, #7c3aed);
+  position: fixed; top: 0; left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #6366f1, #a855f7, #ec4899);
   z-index: 9999;
-  transition: width 0.1s linear;
+  transition: width 0.08s linear;
 }

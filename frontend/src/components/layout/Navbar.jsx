@@ -1,212 +1,153 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Moon, Sun, Menu, X, Code2, ChevronRight } from 'lucide-react'
+import { Moon, Sun, Menu, X, ChevronRight } from 'lucide-react'
 import { useTheme } from '../../context/ThemeContext'
 import { NAV_LINKS } from '../../data/portfolioData'
 
 export default function Navbar() {
   const { isDark, toggleTheme } = useTheme()
   const [scrolled, setScrolled] = useState(false)
-  const [mobileOpen, setMobileOpen] = useState(false)
+  const [open, setOpen] = useState(false)
   const [active, setActive] = useState('')
-  const menuRef = useRef(null)
+  const ref = useRef(null)
 
   useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 20)
-      // Close mobile menu on scroll
-      if (mobileOpen) setMobileOpen(false)
-    }
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [mobileOpen])
+    const fn = () => { setScrolled(window.scrollY > 30); if (open) setOpen(false) }
+    window.addEventListener('scroll', fn, { passive: true })
+    return () => window.removeEventListener('scroll', fn)
+  }, [open])
 
-  // Close on outside click
   useEffect(() => {
-    const onClick = (e) => {
-      if (menuRef.current && !menuRef.current.contains(e.target)) {
-        setMobileOpen(false)
-      }
-    }
-    if (mobileOpen) document.addEventListener('mousedown', onClick)
-    return () => document.removeEventListener('mousedown', onClick)
-  }, [mobileOpen])
-
-  // Active section tracking — lower threshold for mobile
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(e => {
-          if (e.isIntersecting) setActive(e.target.id)
-        })
-      },
-      { threshold: 0.2, rootMargin: '-60px 0px -40% 0px' }
+    const obs = new IntersectionObserver(
+      entries => entries.forEach(e => { if (e.isIntersecting) setActive(e.target.id) }),
+      { threshold: 0.25, rootMargin: '-64px 0px -35% 0px' }
     )
-    NAV_LINKS.forEach(link => {
-      const el = document.getElementById(link.href.replace('#', ''))
-      if (el) observer.observe(el)
-    })
-    return () => observer.disconnect()
+    NAV_LINKS.forEach(l => { const el = document.getElementById(l.href.replace('#','')); if (el) obs.observe(el) })
+    return () => obs.disconnect()
   }, [])
 
-  const scrollTo = (href) => {
-    // Close menu FIRST then scroll — fixes mobile nav bug
-    setMobileOpen(false)
-    const id = href.replace('#', '')
-    // Small delay so menu closes before scroll fires
+  useEffect(() => {
+    const fn = e => { if (ref.current && !ref.current.contains(e.target)) setOpen(false) }
+    if (open) document.addEventListener('mousedown', fn)
+    return () => document.removeEventListener('mousedown', fn)
+  }, [open])
+
+  const go = href => {
+    setOpen(false)
     setTimeout(() => {
-      const el = document.getElementById(id)
-      if (el) {
-        const offset = 64 // navbar height
-        const top = el.getBoundingClientRect().top + window.scrollY - offset
-        window.scrollTo({ top, behavior: 'smooth' })
-      }
-    }, 50)
+      const el = document.getElementById(href.replace('#',''))
+      if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 68, behavior: 'smooth' })
+    }, 60)
   }
 
   return (
-    <div ref={menuRef}>
-      <motion.nav
-        initial={{ y: -80, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.4, ease: 'easeOut' }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+    <div ref={ref}>
+      <motion.header
+        initial={{ y: -80 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.4 }}
+        className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
           scrolled
-            ? 'bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800 shadow-sm'
-            : 'bg-white/80 dark:bg-transparent backdrop-blur-sm'
+            ? 'bg-white/90 dark:bg-slate-950/90 backdrop-blur-xl border-b border-slate-100 dark:border-slate-800/80 shadow-sm'
+            : 'bg-transparent'
         }`}
       >
-        <div className="section-container h-16 flex items-center justify-between">
+        <div className="container-xl flex items-center justify-between h-16">
           {/* Logo */}
-          <button
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          <button onClick={() => window.scrollTo({ top: 0, behavior:'smooth' })}
             className="flex items-center gap-2.5 group"
           >
-            <div className="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center shadow-sm shadow-blue-600/20">
-              <Code2 size={16} className="text-white" />
-            </div>
-            <span className="font-bold text-slate-900 dark:text-white font-display text-lg group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-              K.Chandana
+            <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center text-white text-sm font-bold shadow-md">KC</div>
+            <span className="font-bold text-slate-900 dark:text-white text-base group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+              K. Chandana
             </span>
           </button>
 
-          {/* Desktop Links */}
-          <div className="hidden md:flex items-center gap-0.5">
-            {NAV_LINKS.map(link => (
-              <button
-                key={link.label}
-                onClick={() => scrollTo(link.href)}
-                className={`nav-link ${active === link.href.replace('#', '') ? 'active' : ''}`}
-              >
-                {link.label}
-              </button>
+          {/* Desktop nav */}
+          <nav className="hidden md:flex items-center gap-1">
+            {NAV_LINKS.map(l => (
+              <button key={l.label} onClick={() => go(l.href)}
+                className={`nav-item ${active === l.href.replace('#','') ? 'active' : ''}`}
+              >{l.label}</button>
             ))}
-          </div>
+          </nav>
 
-          {/* Right Actions */}
+          {/* Actions */}
           <div className="flex items-center gap-2">
-            <button
-              onClick={toggleTheme}
-              className="p-2 rounded-lg text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-slate-100 dark:hover:bg-white/5 transition-all"
-              aria-label="Toggle theme"
+            <button onClick={toggleTheme} aria-label="Toggle theme"
+              className="p-2.5 rounded-full text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all"
             >
-              {isDark ? <Sun size={18} /> : <Moon size={18} />}
+              <AnimatePresence mode="wait" initial={false}>
+                <motion.div key={isDark ? 'sun' : 'moon'}
+                  initial={{ rotate: -90, opacity: 0, scale: 0.8 }}
+                  animate={{ rotate: 0, opacity: 1, scale: 1 }}
+                  exit={{ rotate: 90, opacity: 0, scale: 0.8 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  {isDark ? <Sun size={18} /> : <Moon size={18} />}
+                </motion.div>
+              </AnimatePresence>
             </button>
-            <button
-              className="hidden md:flex btn-primary text-sm py-2 px-5"
-              onClick={() => scrollTo('#contact')}
-            >
-              Hire Me
+            <button onClick={() => go('#contact')} className="hidden md:flex btn-primary text-xs py-2 px-5">
+              Hire Me ✨
             </button>
-            {/* Mobile hamburger */}
-            <button
-              className="md:hidden p-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-white/5 transition-all"
-              onClick={() => setMobileOpen(o => !o)}
-              aria-label="Toggle menu"
-              aria-expanded={mobileOpen}
+            <button onClick={() => setOpen(o => !o)} aria-label="Menu"
+              className="md:hidden p-2.5 rounded-full text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all"
             >
-              <motion.div
-                animate={{ rotate: mobileOpen ? 90 : 0 }}
-                transition={{ duration: 0.2 }}
-              >
-                {mobileOpen ? <X size={22} /> : <Menu size={22} />}
-              </motion.div>
+              {open ? <X size={20} /> : <Menu size={20} />}
             </button>
           </div>
         </div>
-      </motion.nav>
+      </motion.header>
 
-      {/* Mobile Menu — full screen overlay for easy tapping */}
+      {/* Mobile panel */}
       <AnimatePresence>
-        {mobileOpen && (
+        {open && (
           <>
-            {/* Backdrop */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 z-40 bg-black/20 dark:bg-black/50 md:hidden"
-              onClick={() => setMobileOpen(false)}
+            <motion.div initial={{ opacity:0 }} animate={{ opacity:1 }} exit={{ opacity:0 }}
+              className="fixed inset-0 z-40 bg-slate-900/30 dark:bg-black/60 backdrop-blur-sm md:hidden"
+              onClick={() => setOpen(false)}
             />
-            {/* Panel */}
             <motion.div
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+              initial={{ x: '100%' }} animate={{ x: 0 }} exit={{ x: '100%' }}
+              transition={{ type:'spring', stiffness:320, damping:32 }}
               className="fixed top-0 right-0 bottom-0 z-50 w-72 bg-white dark:bg-slate-900 shadow-2xl md:hidden flex flex-col"
             >
-              {/* Panel header */}
-              <div className="flex items-center justify-between px-5 h-16 border-b border-slate-100 dark:border-slate-800">
+              <div className="flex items-center justify-between px-6 h-16 border-b border-slate-100 dark:border-slate-800">
                 <div className="flex items-center gap-2">
-                  <div className="w-7 h-7 rounded-lg bg-blue-600 flex items-center justify-center">
-                    <Code2 size={14} className="text-white" />
-                  </div>
-                  <span className="font-bold text-slate-900 dark:text-white font-display">Menu</span>
+                  <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center text-white text-xs font-bold">KC</div>
+                  <span className="font-bold text-slate-900 dark:text-white text-sm">Navigation</span>
                 </div>
-                <button
-                  onClick={() => setMobileOpen(false)}
-                  className="p-2 rounded-lg text-slate-400 hover:text-slate-600 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 transition-all"
-                >
-                  <X size={20} />
+                <button onClick={() => setOpen(false)} className="p-2 rounded-full text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">
+                  <X size={18} />
                 </button>
               </div>
-
-              {/* Nav links — large tap targets */}
-              <nav className="flex-1 overflow-y-auto py-4 px-3">
-                {NAV_LINKS.map((link, i) => (
-                  <motion.button
-                    key={link.label}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.04 }}
-                    onClick={() => scrollTo(link.href)}
-                    className={`w-full flex items-center justify-between px-4 py-4 rounded-xl mb-1 text-base font-medium transition-all ${
-                      active === link.href.replace('#', '')
-                        ? 'bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400'
-                        : 'text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-white/5 hover:text-blue-600 dark:hover:text-blue-400'
+              <nav className="flex-1 overflow-y-auto py-4 px-4">
+                {NAV_LINKS.map((l, i) => (
+                  <motion.button key={l.label}
+                    initial={{ opacity:0, x:16 }}
+                    animate={{ opacity:1, x:0 }}
+                    transition={{ delay: i * 0.045 }}
+                    onClick={() => go(l.href)}
+                    className={`w-full flex items-center justify-between px-4 py-3.5 rounded-xl mb-1 text-sm font-semibold transition-all ${
+                      active === l.href.replace('#','')
+                        ? 'bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400'
+                        : 'text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-indigo-600 dark:hover:text-indigo-400'
                     }`}
                   >
-                    {link.label}
-                    <ChevronRight size={16} className="opacity-40" />
+                    {l.label}
+                    <ChevronRight size={15} className="opacity-30" />
                   </motion.button>
                 ))}
               </nav>
-
-              {/* Bottom CTA */}
-              <div className="p-4 border-t border-slate-100 dark:border-slate-800 space-y-3">
-                <button
-                  onClick={() => scrollTo('#contact')}
-                  className="btn-primary w-full justify-center text-sm"
-                >
-                  Hire Me
+              <div className="p-5 border-t border-slate-100 dark:border-slate-800 space-y-2.5">
+                <button onClick={() => go('#contact')} className="btn-primary w-full justify-center text-sm">
+                  Hire Me ✨
                 </button>
-                <button
-                  onClick={toggleTheme}
-                  className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-white/5 transition-all border border-slate-200 dark:border-slate-700"
+                <button onClick={toggleTheme}
+                  className="w-full flex items-center justify-center gap-2 py-2.5 rounded-full text-sm font-medium text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-700 transition-all"
                 >
-                  {isDark ? <Sun size={15} /> : <Moon size={15} />}
-                  Switch to {isDark ? 'Light' : 'Dark'} Mode
+                  {isDark ? <><Sun size={14}/> Light Mode</> : <><Moon size={14}/> Dark Mode</>}
                 </button>
               </div>
             </motion.div>
