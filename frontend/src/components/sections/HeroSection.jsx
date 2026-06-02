@@ -43,14 +43,14 @@ export default function HeroSection() {
             <motion.div {...fade(0.1)}>
               <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold bg-green-50 dark:bg-green-500/10 text-green-700 dark:text-green-400 border border-green-200 dark:border-green-500/20">
                 <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-                Open to Internships & Full-time Roles 2026
+                Open for oppurtunities
               </span>
             </motion.div>
 
             <motion.h1 {...fade(0.2)} className="heading-xl text-slate-900 dark:text-white">
               Hi, I'm{' '}
               <span className="text-gradient italic font-display">K.Chandana</span>
-              <span className="block text-slate-300 dark:text-slate-700 text-4xl sm:text-5xl lg:text-6xl mt-1">—</span>
+              <span className="block text-slate-300 dark:text-slate-700 text-4xl sm:text-5xl lg:text-6xl mt-1"></span>
             </motion.h1>
 
             <motion.div {...fade(0.3)} className="flex items-center gap-3 min-h-[2rem]">
@@ -79,7 +79,8 @@ export default function HeroSection() {
               {[
                 { href: PERSONAL.github, label:'GitHub', icon:<Github size={15}/> },
                 { href: PERSONAL.linkedin, label:'LinkedIn', icon:<Linkedin size={15}/> },
-                { href:`mailto:${PERSONAL.email}`, label:'Email', icon:<Mail size={15}/> }
+                { href:`mailto:${PERSONAL.email}`, label:'Email', icon:<Mail size={15}/> },
+                { href: PERSONAL.Medium, label:'Medium', icon:<Medium size={15}/> }
               ].map(({ href, label, icon }) => (
                 <a key={label} href={href} target="_blank" rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-500/10 transition-all"
