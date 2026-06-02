@@ -81,7 +81,7 @@ export default function HeroSection() {
                 { href: PERSONAL.github, label:'GitHub', icon:<Github size={15}/> },
                 { href: PERSONAL.linkedin, label:'LinkedIn', icon:<Linkedin size={15}/> },
                 { href:`mailto:${PERSONAL.email}`, label:'Email', icon:<Mail size={15}/> },
-                { href: PERSONAL.medium, label:'Medium', icon:<FaMedium size={15}/> }
+                //{ href: PERSONAL.medium, label:'Medium', icon:<FaMedium size={15}/> }
               ].map(({ href, label, icon }) => (
                 <a key={label} href={href} target="_blank" rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-500/10 transition-all"
