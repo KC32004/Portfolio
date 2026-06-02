@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { TypeAnimation } from 'react-type-animation'
-import { Github, Linkedin, Mail, ArrowRight, ArrowDown, Sparkles, FaMedium } from 'lucide-react'
+import { Github, Linkedin, Mail, ArrowRight, ArrowDown, Sparkles} from 'lucide-react'
 import { PERSONAL } from '../../data/portfolioData'
 import { FaMedium } from "react-icons/fa"
 
