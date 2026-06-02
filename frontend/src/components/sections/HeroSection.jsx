@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { TypeAnimation } from 'react-type-animation'
 import { Github, Linkedin, Mail, ArrowRight, ArrowDown, Sparkles} from 'lucide-react'
 import { PERSONAL } from '../../data/portfolioData'
-import { FaMedium } from "react-icons/fa"
+//import { FaMedium } from "react-icons/fa"
 
 const go = id => setTimeout(() => {
   const el = document.getElementById(id)

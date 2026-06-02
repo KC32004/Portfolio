@@ -6,7 +6,7 @@ export const PERSONAL = {
   location: 'Bengaluru, Karnataka, India',
   github: 'https://github.com/KC32004',
   linkedin: 'https://linkedin.com/in/k-chandana-ai',
-  medium: 'https://medium.com/@kchandana.200432',
+ // medium: 'https://medium.com/@kchandana.200432',
   cgpa: '8.48',
   college: 'SDM Institute of Technology, Ujire'
 }
