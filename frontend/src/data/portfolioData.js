@@ -6,6 +6,7 @@ export const PERSONAL = {
   location: 'Bengaluru, Karnataka, India',
   github: 'https://github.com/KC32004',
   linkedin: 'https://linkedin.com/in/k-chandana-ai',
+  medium: 'https://medium.com/@kchandana.200432',
   cgpa: '8.48',
   college: 'SDM Institute of Technology, Ujire'
 }
@@ -21,8 +22,8 @@ export const SKILLS = {
   'Web Technologies': [
     { name: 'HTML / CSS', level: 85 },
     { name: 'React.js', level: 65 },
-    { name: 'Node.js', level: 60 },
-    { name: 'Express.js', level: 60 },
+   // { name: 'Node.js', level: 60 },
+    //{ name: 'Express.js', level: 60 },
     { name: 'ASP.NET Core MVC', level: 75 }
   ],
   'AI & Data Science': [
@@ -35,7 +36,7 @@ export const SKILLS = {
   'Databases & Tools': [
     { name: 'MongoDB', level: 72 },
     { name: 'SQL Server', level: 70 },
-    { name: 'Git / GitHub', level: 80 },
+   // { name: 'Git / GitHub', level: 80 },
     { name: 'Solidity', level: 60 },
     { name: 'OpenCV', level: 72 }
   ]
@@ -56,7 +57,7 @@ export const PROJECTS = [
   },
   {
     id: 2,
-    title: 'VogueVista — AI Virtual Try-On',
+    title: 'VogueVista - AI Virtual Try-On',
     shortDesc: 'AI-powered fashion technology enabling virtual outfit try-on via computer vision',
     description: 'An innovative AI-powered fashion tech platform that uses Python and OpenCV to allow users to virtually try on outfits in real-time. Leverages computer vision models to detect body pose and overlay garments accurately, solving a real e-commerce pain point with cutting-edge deep learning.',
     tags: ['Python', 'OpenCV', 'Computer Vision', 'Flask', 'Deep Learning'],
@@ -68,7 +69,7 @@ export const PROJECTS = [
   },
   {
     id: 3,
-    title: 'ToDo Smart Contract — Blockchain dApp',
+    title: 'ToDo Smart Contract - Blockchain dApp',
     shortDesc: 'Decentralised task management system on Ethereum using Solidity smart contracts',
     description: 'A blockchain-based decentralised application (dApp) where task data is stored immutably on the Ethereum network. Built with Solidity smart contracts and connected to a web frontend via MetaMask — demonstrating secure, trustless task creation and management without any centralised backend.',
     tags: ['Solidity', 'Ethereum', 'MetaMask', 'JavaScript', 'Web3'],
@@ -80,7 +81,7 @@ export const PROJECTS = [
   },
   {
     id: 4,
-    title: 'ClariSchool — Student Progress Tracker',
+    title: 'ClariSchool - Student Progress Tracker',
     shortDesc: 'Academic monitoring platform with performance visualisation and learning insights',
     description: 'A student performance monitoring system that tracks academic progress across subjects, visualises performance trends through dynamic charts, and generates data-driven learning insights for educators and students. Built with MongoDB, HTML, CSS, and JavaScript.',
     tags: ['MongoDB', 'JavaScript', 'HTML/CSS', 'Data Viz', 'Node.js'],
@@ -92,7 +93,7 @@ export const PROJECTS = [
   },
   {
     id: 5,
-    title: 'PantryPal — Smart Inventory Solution',
+    title: 'PantryPal - Smart Inventory Solution',
     shortDesc: '6th place Anveshana Hackathon — intelligent pantry management with Python & MongoDB',
     description: 'A collaborative hackathon project that secured 6th place at the Anveshana Hackathon. PantryPal is a smart inventory management system that tracks pantry items, predicts restocking needs using consumption patterns, and reduces food waste through intelligent alerts and analytics.',
     tags: ['Python', 'MongoDB', 'Flask', 'Analytics'],
