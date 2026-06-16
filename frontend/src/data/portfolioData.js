@@ -94,7 +94,7 @@ export const PROJECTS = [
   {
     id: 5,
     title: 'PantryPal - Smart Inventory Solution',
-    shortDesc: '6th place Anveshana Hackathon — intelligent pantry management with Python & MongoDB',
+    shortDesc: '6th place Anveshana Hackathon intelligent pantry management with Python & MongoDB',
     description: 'A collaborative hackathon project that secured 6th place at the Anveshana Hackathon. PantryPal is a smart inventory management system that tracks pantry items, predicts restocking needs using consumption patterns, and reduces food waste through intelligent alerts and analytics.',
     tags: ['Python', 'MongoDB', 'Flask', 'Analytics'],
     category: 'AI / Data Science',
@@ -126,12 +126,12 @@ export const EXPERIENCE = [
 
 export const EDUCATION = [
   {
-    degree: 'B.E. — Artificial Intelligence & Data Science',
+    degree: 'B.E. Artificial Intelligence & Data Science',
     institution: 'SDM Institute of Technology, Ujire',
     period: '2022 – 2026',
     cgpa: '8.48',
     coursework: ['Machine Learning', 'Deep Learning', 'Computer Vision', 'Data Structures & Algorithms', 'Database Management Systems', 'Web Technologies', 'Blockchain Fundamentals'],
-    achievements: ['Consistent academic performer with 8.48 CGPA', '1st Place — Ideathon, Yugma TechFest 1.0', 'NCC \'A\' Certificate Holder']
+    achievements: ['Consistent academic performer with 8.48 CGPA', '1st Place - Ideathon, Yugma TechFest 1.0', 'NCC \'A\' Certificate Holder']
   },
   {
     degree: 'Class 11–12 (PCMB)',
@@ -160,7 +160,7 @@ export const CERTIFICATIONS = [
 ]
 
 export const ACHIEVEMENTS = [
-  { rank: '🥇 1st', event: 'Ideathon — Yugma TechFest 1.0', org: 'JNNCE Shivamogga', desc: 'Won first place in a competitive ideathon, collaborating with a teammate to deliver the winning idea.' },
+  { rank: '🥇 1st', event: 'Ideathon Yugma TechFest 1.0', org: 'JNNCE Shivamogga', desc: 'Won first place in a competitive ideathon, collaborating with a teammate to deliver the winning idea.' },
   { rank: '6th', event: 'Anveshana Hackathon', org: 'PantryPal Project', desc: 'Ranked 6th with a smart inventory management solution using Python and MongoDB.' },
   { rank: 'National', event: 'FusionTechathon 3.0', org: 'AIET 2024', desc: 'Competed nationally, developing a Waste Management solution in a 24-hour sprint.' },
   { rank: '🏅', event: 'IdeaStorm Award', org: 'Sustainable Agriculture Track', desc: 'Recognised for an innovative solution addressing Sustainable Agriculture and Urban Living.' },
