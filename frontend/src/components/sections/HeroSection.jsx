@@ -64,7 +64,8 @@ export default function HeroSection() {
             </motion.div>*/}
 
             <motion.p {...fade(0.4)} className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-lg">
-              B.E. in Artificial Intelligence and Data Science from <strong className="text-slate-900 dark:text-white">SDMIT, Ujire</strong> (CGPA <strong className="text-indigo-600 dark:text-indigo-400">8.48</strong>). Building intelligent real-world systems from computer vision apps to blockchain dApps and enterprise web platforms.
+              AI & DS Graduate from <strong className="text-slate-900 dark:text-white">SDMIT, Ujire</strong> (CGPA <strong className="text-indigo-600 dark:text-indigo-400">8.48</strong>). Passionate about building intelligent systems using Machine Learning, Data Analytics and Arificial Intelligence.
+              With hands-on experience in solving real-world problems from computer vision apps to blockchain dApps and enterprise web platforms.
             </motion.p>
 
             <motion.div {...fade(0.5)} className="flex flex-wrap gap-3 pt-1">
