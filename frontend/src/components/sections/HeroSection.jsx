@@ -53,15 +53,11 @@ export default function HeroSection() {
               <span className="font-display">K.Chandana</span>
               <span className="block text-slate-300 dark:text-slate-700 text-4xl sm:text-5xl lg:text-6xl mt-1"></span>
             </motion.h1>
-            {/*}
+            
             <motion.div {...fade(0.3)} className="flex items-center gap-3 min-h-[2rem]">
               <div className="w-8 h-0.5 bg-indigo-500 rounded-full shrink-0" />
-              <TypeAnimation
-                sequence={['AI & Data Science Graduate',2200,'Machine Learning Engineer',1800,'Computer Vision Developer',1800,'Full Stack Developer',1800,'Blockchain Developer',1800]}
-                speed={55} repeat={Infinity} wrapper="span"
-                className="text-xl sm:text-2xl font-bold text-indigo-600 dark:text-indigo-400"
-              />
-            </motion.div>*/}
+              AI & Data Science Engineer | Interned @ HAL | Data Science & Business Analytics Enthusiast | Content Writer
+            </motion.div>
 
             <motion.p {...fade(0.4)} className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-lg">
               AI & DS Graduate from <strong className="text-slate-900 dark:text-white">SDMIT, Ujire</strong> (CGPA <strong className="text-indigo-600 dark:text-indigo-400">8.48</strong>). Passionate about building intelligent systems using Machine Learning, Data Analytics and Arificial Intelligence.
