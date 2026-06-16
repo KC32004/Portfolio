@@ -50,7 +50,7 @@ export default function HeroSection() {
 
             <motion.h1 {...fade(0.2)} className="heading-xl text-slate-900 dark:text-white">
               Hi, I'm{' '}
-              <span className="text-gradient italic font-display">K.Chandana</span>
+              <span className="font-display">K.Chandana</span>
               <span className="block text-slate-300 dark:text-slate-700 text-4xl sm:text-5xl lg:text-6xl mt-1"></span>
             </motion.h1>
 
