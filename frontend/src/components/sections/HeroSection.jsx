@@ -54,11 +54,10 @@ export default function HeroSection() {
               <span className="block text-slate-300 dark:text-slate-700 text-4xl sm:text-5xl lg:text-6xl mt-1"></span>
             </motion.h1>
             
-            <motion.div {...fade(0.3)} className="flex items-center gap-3 min-h-[2rem]">
-              <div className="w-8 h-0.5 bg-indigo-500 rounded-full shrink-0" />
-              <strong className="text-slate-900 dark:text-white"></strong>
-              AI & Data Science Engineer | Interned @ HAL | Data Science & Business Analytics Enthusiast | Content Writer
-
+            <motion.div {...fade(0.3)} className="flex items-center">
+              <div className="w-8 h-0.5 bg-indigo-500 rounded-full shrink-0">
+              <strong className="text-slate-900 dark:text-white" ></strong>
+              AI & Data Science Engineer | Interned @ HAL | Data Science & Business Analytics Enthusiast | Content Writer</div>
             </motion.div>
 
             <motion.p {...fade(0.4)} className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-lg">
