@@ -54,7 +54,7 @@ export default function HeroSection() {
             </motion.h1>
 
             <motion.div {...fade(0.3)} className="flex items-center">
-              <div className="w-8 h-0.5 bg-indigo-500 rounded-full shrink-0" />
+              <div className="w-8 h-0.5 bg-indigo-500" />
                AI & Data Science Engineer | Interned @ HAL | Data Science & Business Analytics Enthusiast | Content Writer
             </motion.div>
 
