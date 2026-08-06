@@ -15,8 +15,8 @@ export default function LoadingScreen({ onComplete }) {
           />
         </motion.div>
         <div className="text-center">
-          <p className="text-slate-900 dark:text-white font-bold text-base">K Chandana</p>
-          <p className="text-slate-400 text-xs mt-0.5 font-mono tracking-wider">AI & Data Science Portfolio</p>
+          <p className="text-slate-900 dark:text-white font-bold text-base">Sneek Peek About ME!</p>
+          <p className="text-slate-400 text-xs mt-0.5 font-mono tracking-wider">K Chandana</p>
         </div>
         <div className="flex gap-1.5">
           {[0,1,2].map(i=><motion.div key={i} className="w-2 h-2 rounded-full bg-indigo-500" animate={{y:[-4,0,-4]}} transition={{duration:0.65,repeat:Infinity,delay:i*0.15}}/>)}
