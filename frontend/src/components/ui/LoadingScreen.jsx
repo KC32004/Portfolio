@@ -11,7 +11,7 @@ export default function LoadingScreen({ onComplete }) {
           <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center text-white text-xl font-bold shadow-2xl shadow-indigo-500/30">KC</div>
           <motion.div className="absolute -inset-2 rounded-2xl border-2 border-indigo-400/30"
             animate={{ scale:[1,1.18,1], opacity:[1,0.15,1] }}
-            transition={{ duration:1.4, repeat:Infinity }}
+            transition={{ duration:2.1, repeat:Infinity }}
           />
         </motion.div>
         <div className="text-center">
